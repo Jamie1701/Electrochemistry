@@ -3,15 +3,13 @@ import numpy as np
 from ox_curr_root_scan_data import *
 import os
 
-# Constants
-SAVE_PATH = "/Users/jamiepersonal/Documents/Electrochemistry/Report/Graphs_2/Peak_ox_vs_root_of_scan"
+BASE_DIR = Path(__file__).parent
+SAVE_PATH = BASE_DIR / "Report" / "Graphs_2" / "Peak_ox_vs_root_of_scan"
 FONT_FAMILY = "Times New Roman"
 MATH_FONTSET = "stix"
 
-# Ensure the save path exists
 os.makedirs(SAVE_PATH, exist_ok=True)
 
-# Set Matplotlib parameters
 plt.rcParams["font.family"] = FONT_FAMILY
 plt.rcParams["mathtext.fontset"] = MATH_FONTSET
 
@@ -40,10 +38,8 @@ def plot_peak_current_vs_scan_rate(x_values, y_values, label, filename):
         label (str): Label for the graph (e.g., species name).
         filename (str): Name of the file to save the plot.
     """
-    # Fit a linear regression line
     coefs = np.polyfit(x_values, y_values, 1)
 
-    # Create the plot
     plt.figure()
     plt.plot(x_values, y_values, marker="o", linestyle="", label=label)
     plt.plot(x_values, coefs[0] * x_values + coefs[1], color="r", label="Linear fit")
@@ -55,11 +51,9 @@ def plot_peak_current_vs_scan_rate(x_values, y_values, label, filename):
     plt.legend(fontsize=12)
     plt.tight_layout()
 
-    # Save the plot
     plt.savefig(os.path.join(SAVE_PATH, filename), dpi=300, transparent=True)
     plt.close()
 
-# Prepare data and plot for each species
 
 # Ferrocyanide
 x_values, y_values = prepare_data(scan_rate_1, ox_peak_dict_ferrocyanide)
