@@ -2,8 +2,7 @@ import os
 from pathlib import Path
 import pandas as pd
 
-# Root paths
-BASE_DIR = Path(__file__).parent  # Directory where the script is located
+BASE_DIR = Path(__file__).parent  
 ROOT_PATH = BASE_DIR / "Data" 
 PART_A1 = ROOT_PATH / "Part_A1"
 PART_A2 = ROOT_PATH / "Part_A2"
@@ -55,15 +54,12 @@ def load_excel_files(file_dict, engine="openpyxl"):
                 print(f"Error loading files for {key}: {e}")
     return single_dfs, all_dfs
 
-# Part A1: File prefixes and data collection
 A1_PREFIXES = ["ferrocene", "ferrocyanide", "iron"]
 file_dict_A1 = collect_files_by_prefix(PART_A1, A1_PREFIXES)
 df_dict_A1, df_dict_A1_full = load_excel_files(file_dict_A1)
 
-# Part A2: File prefixes and data collection
 A2_PREFIXES = ["ferrocene_DCM", "ferrocene_DMSO", "ferrocene_MeCN", "FCA_ferrocene", "FCA_MeCN"]
 file_dict_A2 = collect_files_by_prefix(PART_A2, A2_PREFIXES)
 df_dict_A2, df_dict_A2_full = load_excel_files(file_dict_A2)
 
-# Change back to root directory
 os.chdir(ROOT_PATH.parent)
