@@ -3,7 +3,8 @@ from pathlib import Path
 import pandas as pd
 
 # Root paths
-ROOT_PATH = Path("/Users/jamiepersonal/Documents/Electrochemistry/Data")
+BASE_DIR = Path(__file__).parent  # Directory where the script is located
+ROOT_PATH = BASE_DIR / "Data" 
 PART_A1 = ROOT_PATH / "Part_A1"
 PART_A2 = ROOT_PATH / "Part_A2"
 
@@ -66,10 +67,3 @@ df_dict_A2, df_dict_A2_full = load_excel_files(file_dict_A2)
 
 # Change back to root directory
 os.chdir(ROOT_PATH.parent)
-
-# Print summaries for verification
-print("Part A1 files loaded:")
-print(df_dict_A1.keys())
-
-print("\nPart A2 files loaded:")
-print(df_dict_A2.keys())
