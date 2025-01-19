@@ -3,8 +3,8 @@ import os
 import pandas as pd
 from data_prep_2 import df_dict_A1, df_dict_A2
 
-# Constants
-SAVE_PATH = "/Users/jamiepersonal/Documents/Electrochemistry/Report/Graphs_2"
+BASE_DIR = Path(__file__).parent  # Directory where this script is located
+SAVE_PATH = BASE_DIR / "Report" / "Graphs_2"
 LABEL_LIST_A1 = ["Ferrocenemethanol", "Ferrocyanide", "Iron (II)"]
 LABEL_LIST_A2 = ["Ferrocene (DCM)", "Ferrocene (DMSO)", "Ferrocene (MeCN)", "FCA with Ferrocene", "FCA (MeCN)"]
 
