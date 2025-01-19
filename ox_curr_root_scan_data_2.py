@@ -7,7 +7,7 @@ from data_prep_2 import df_dict_A1_full, df_dict_A2_full
 ELECTRODE_AREA = 7.07e-6  # Electrode area in m^2 (3mm diameter)
 FARADAY_CONSTANT = 2.69e5  # Faraday constant for diffusion calculations
 SCAN_RATE_RANGES = {
-    "ferrocyanide": slice(1, 8),  # Adjust as needed
+    "ferrocyanide": slice(1, 8), # Each of these to be verified with respect to desired range
     "ferrocene_DMSO": slice(1, 41),
     "ferrocene_methanol": slice(1, 9)
 }
